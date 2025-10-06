@@ -17,6 +17,40 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+# Option One 
+# from blog import views
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('tamim/',views.tamim ),
+#     path('userinfo/', views.userinfo),
+# ]
+
+
+# # OPTION-2: RENAME VIEW NAME
+# from blog import views as blogView
+# from tamim import views as aboutview
+# from contact import views as contactView
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('tamim/',blogView.tamim ),
+#     path('userinfo/', blogView.userinfo),
+#     path('contactView/', aboutview.about),
+#     path('contact/', contactView.phone),
+# ]
+
+# OPTION-3: Import DirecT Function to USe Link 
+from blog.views import tamim
+from blog.views import userinfo
+from tamim.views import about
+from contact.views import phone
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('tamim/', tamim ),
+    path('userinfo/', userinfo),
+    path('about/', about),
+    path('contact/', phone),
 ]
