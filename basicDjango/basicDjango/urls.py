@@ -40,17 +40,26 @@ from django.urls import path
 #     path('contact/', contactView.phone),
 # ]
 
-# OPTION-3: Import DirecT Function to USe Link 
-from blog.views import tamim
-from blog.views import userinfo
-from tamim.views import about
-from contact.views import phone
+# # OPTION-3: Import DirecT Function to USe Link 
+# from blog.views import tamim
+# from blog.views import userinfo
+# from tamim.views import about
+# from contact.views import phone
 
 
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('tamim/', tamim ),
+#     path('userinfo', userinfo),
+#     path('about/', about),
+#     path('contact', phone),
+# ]
+
+# Option-4: Include Function
+from django.urls import include
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('tamim/', tamim ),
-    path('userinfo/', userinfo),
-    path('about/', about),
-    path('contact/', phone),
+    path('blog/', include('blog.url')),
+    path('about/', include('tamim.url')),
+    path('contact/', include('contact.url')),
 ]
